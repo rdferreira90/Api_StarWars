@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RestController
-public class TesteController {
+public class PlanetaController {
 	
 		@RequestMapping(value="/planetas")
 		@ResponseBody
