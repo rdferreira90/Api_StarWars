@@ -5,11 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Table(name="PLANETA")
 @Entity
 public class Planeta {
 
+
+
 	@Id
+	private String id;
+	
 	@Column
 	private String nome;
 	
@@ -19,8 +25,15 @@ public class Planeta {
 	@Column
 	private String terreno;
 	
+	public Planeta(String terreno, String clima, String nome) {
+		super();
+		this.nome = nome;
+		this.clima = clima;
+		this.terreno = terreno;
+	}
 	
-
+	
+		
 	public String getNome() {
 		return nome;
 	}
@@ -44,6 +57,16 @@ public class Planeta {
 	public void setTerreno(String terreno) {
 		this.terreno = terreno;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 	
 	
 }
