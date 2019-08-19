@@ -1,10 +1,12 @@
 package com.rodrigo.starwars.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 
 @Table(name="PLANETA")
@@ -14,6 +16,7 @@ public class Planeta {
 
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	
 	@Column
@@ -30,6 +33,10 @@ public class Planeta {
 		this.nome = nome;
 		this.clima = clima;
 		this.terreno = terreno;
+	}
+	
+	public Planeta() {
+		
 	}
 	
 	

@@ -1,29 +1,24 @@
 package com.rodrigo.starwars.service;
 
-import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.rodrigo.starwars.model.Planeta;
+import com.rodrigo.starwars.repositories.PlanetaRepository;
 
+@Service
 public class PlanetaService {
 
+	@Autowired
+	private PlanetaRepository repo;
 	
-	public List<PlanetaService> getNomePlaneta() {
-		return PlanetaService.findAllActive();
-}
-
-	private static List<PlanetaService> findAllActive() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object incluir(Planeta planeta) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object alterar(Planeta planeta) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
+	public Planeta buscar() {
+		Planeta obj = (Planeta) repo.findAll();
+		return obj;
+	}
+
+		
 }

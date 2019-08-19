@@ -1,43 +1,49 @@
 package com.rodrigo.starwars.controller;
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rodrigo.starwars.model.Planeta;
+import com.rodrigo.starwars.repositories.PlanetaRepository;
 import com.rodrigo.starwars.service.PlanetaService;
 
+
 @RestController
-@RequestMapping("/planeta")
+@RequestMapping("/api")
 public class PlanetaController {
 	
-	private PlanetaService planetaService;
+	@Autowired
+	private PlanetaRepository repo;
+	@Autowired
+	private PlanetaService service;
 	
-	@GetMapping(path = "/planeta/nome")
-	public ResponseEntity<List<PlanetaService>> getNomePlaneta(){
-		return ResponseEntity.ok(planetaService.getNomePlaneta());
-					
+//	@GetMapping(path = "/planeta")
+//	public Planeta findAll() {
+//		Planeta obj = (Planeta) repo.findAll();
+//		return obj;
+//	}
+	
+	
+	
+	
+	@GetMapping(path = "/planeta")
+	public ResponseEntity<Object> encontraTodos(){
+		List<Planeta> planeta = new ArrayList<Planeta>();
+		planeta = repo.findAll();
+		return ResponseEntity.ok(planeta);
 	}
-	
-	@PostMapping(path="/planeta/clima")
-	public ResponseEntity<Object>incluir(@RequestBody Planeta planeta)throws Exception {
-		return ResponseEntity.ok(planetaService.incluir(planeta));
-	}
-	
-	@PutMapping(path="/planeta")
-	public ResponseEntity<Object>atualizar(@RequestBody Planeta planeta) throws Exception{
-		
-			return ResponseEntity.ok(planetaService.alterar(planeta));
-		
-	}
-	
-	
-	
-		
 }
-	
+
