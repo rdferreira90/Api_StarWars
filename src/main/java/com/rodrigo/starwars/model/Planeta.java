@@ -8,7 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="PLANETA")
 @Entity
 public class Planeta {
@@ -17,6 +23,7 @@ public class Planeta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private String id;
 	
 	@Column
@@ -38,9 +45,15 @@ public class Planeta {
 	public Planeta() {
 		
 	}
-	
-	
-		
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -65,15 +78,11 @@ public class Planeta {
 		this.terreno = terreno;
 	}
 
-	public String getId() {
-		return id;
+	public boolean isPresent() {
+		// TODO Auto-generated method stub
+		return false;
 	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	
-	
 	
 }
+	
+	
