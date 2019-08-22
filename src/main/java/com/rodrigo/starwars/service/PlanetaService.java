@@ -22,6 +22,10 @@ public class PlanetaService {
 		Optional<Planeta> pl =  repo.findById(id);
 		return pl;
 	}
+
+	public void deleta(String id) {
+		repo.deleteById(id);
+	}
 	
 	
 }
