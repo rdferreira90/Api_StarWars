@@ -1,12 +1,15 @@
 package com.rodrigo.starwars.model;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +37,15 @@ public class Planeta {
 	
 	@Column
 	private String terreno;
+
+	public void setFilms(List<String> films) {
+		this.films = films;
+	}
+
+	@Transient
+	List<String> films;
 	
+		
 	public Planeta(String terreno, String clima, String nome) {
 		super();
 		this.nome = nome;
@@ -83,6 +94,26 @@ public class Planeta {
 		return false;
 	}
 	
+	Planeta[] results;
+	
+	public Planeta[] getResults() {
+		return results;
+	}
+	
+	public void setResults(Planeta[] results) {
+		this.results = results;
+	}
+
+	
+	
+
+	public List<String> getFilms() {
+		return films;
+	}
+
+	public void setFilmes(List<String> films) {
+		this.films = films;
+	}
 }
 	
 	

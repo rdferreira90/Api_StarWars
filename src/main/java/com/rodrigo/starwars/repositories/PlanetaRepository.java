@@ -10,6 +10,6 @@ import com.rodrigo.starwars.model.Planeta;
 @Repository
 public interface PlanetaRepository extends JpaRepository<Planeta, String> {
 
-	List<Planeta> findByNome(String nome);
+	public List<Planeta> findByNome(String nome);
 	
 }
