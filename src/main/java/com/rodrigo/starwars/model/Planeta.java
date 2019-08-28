@@ -38,12 +38,13 @@ public class Planeta {
 	@Column
 	private String terreno;
 
-	public void setFilms(List<String> films) {
-		this.films = films;
-	}
-
+	@Column
+	private Integer quantidadeAparicoes;
+	
 	@Transient
 	List<String> films;
+	
+	Planeta[] results;
 	
 		
 	public Planeta(String terreno, String clima, String nome) {
@@ -89,31 +90,30 @@ public class Planeta {
 		this.terreno = terreno;
 	}
 
-	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	Planeta[] results;
-	
-	public Planeta[] getResults() {
-		return results;
-	}
-	
-	public void setResults(Planeta[] results) {
-		this.results = results;
+	public Integer getQuantidadeAparicoes() {
+		return quantidadeAparicoes;
 	}
 
-	
-	
+	public void setQuantidadeAparicoes(Integer quantidadeAparicoes) {
+		this.quantidadeAparicoes = quantidadeAparicoes;
+	}
 
 	public List<String> getFilms() {
 		return films;
 	}
 
-	public void setFilmes(List<String> films) {
+	public void setFilms(List<String> films) {
 		this.films = films;
 	}
+
+	public Planeta[] getResults() {
+		return results;
+	}
+
+	public void setResults(Planeta[] results) {
+		this.results = results;
+	}
+	
 }
 	
 	
