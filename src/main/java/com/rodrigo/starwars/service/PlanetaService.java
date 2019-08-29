@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.rodrigo.starwars.model.Planeta;
@@ -36,7 +35,7 @@ public class PlanetaService {
 		return planetas;
 	}
 
-	public Planeta inserirPlaneta(@RequestBody Planeta planeta){
+	public Planeta inserirPlaneta(Planeta planeta){
 		return repo.save(planeta);
 
 	}
@@ -45,6 +44,11 @@ public class PlanetaService {
 	public Planeta encontraPorId(String id)  {
 		return repo.findById(id).get();
 		
+	}
+	
+	public Planeta atualizaPlaneta(Planeta planeta) {
+		repo.saveAndFlush(planeta);
+		return planeta;
 	}
 
 	public ResponseEntity<Planeta> deleta(@PathVariable("id") String id) {
